@@ -1,0 +1,45 @@
+function signal = signals_generator(t,start,endd,sample_rate,positions,num_break_points)
+%UNTITLED2 Summary of this function goes here
+%   Detailed explanation goes here
+
+if (num_break_points > 0)
+    
+    times = [start positions endd];
+
+%while(k <= num_break_points +1 )
+%    time(k) = linspace(times(k),times(k+1), (times(k+1) - times(k))*sample_rate);
+%end
+
+%signal = zeros(1, num_break_points + 1);
+signal = [];
+j = 1;
+while(j <= num_break_points+1)
+    
+    time = linspace(times(j),times(j+1), (times(j+1) - times(j))*sample_rate);
+
+    prompt = 'please provide the name of portion of the signal: ';
+    signal_name = input(prompt,'s');
+    
+    if(signal_name == 'sin')
+        prompt = 'please provide the Amplitude of the signal: ';
+        amp = input(prompt);
+        
+        prompt = 'please provide the Frequency of the signal: ';
+        freq = input(prompt);
+        
+        prompt = 'please provide the Phase of the signal: ';
+        phase = input(prompt);
+        
+        portion_signal = amp*sin(2*pi*time*freq + phase);
+    
+    %else(signal_name == 'dc')
+    %    prompt = 'please provide the Amplitude of the signal: ';
+     %   amp = input(prompt);
+        
+      %  portion_signal = amp*ones(1,time);
+    end
+        
+    signal =[signal, portion_signal ];
+    
+    j = j +1;
+end

@@ -1,0 +1,54 @@
+function portion_signal = portion_signal_generator(signal_name,time)
+%UNTITLED3 Summary of this function goes here
+%   Detailed explanation goes here
+
+    if strcmp(signal_name , 'sinusoidal')
+        prompt = 'please provide the Amplitude of the signal: ';
+        amp = input(prompt);
+        
+        prompt = 'please provide the Frequency of the signal: ';
+        freq = input(prompt);
+        
+        prompt = 'please provide the Phase of the signal: ';
+        phase = input(prompt);
+        
+        portion_signal = amp*sin(2*pi*time*freq + phase);
+    
+    elseif strcmp(signal_name, 'dc')
+        prompt = 'please provide the Amplitude of the signal: ';
+        amp = input(prompt);
+        le = length(time);
+        portion_signal = amp*ones(1,le);
+        
+    elseif strcmp(signal_name, 'ramp')
+        prompt = 'please provide the Amplitude of the signal: ';
+        amp = input(prompt);
+        
+        prompt = 'please provide the intercept of the signal: ';
+        intercept = input(prompt);
+        
+        portion_signal = amp*time + intercept;
+        
+    elseif strcmp(signal_name, 'exponential')
+        prompt = 'please provide the Amplitude of the signal: ';
+        amp = input(prompt);
+        
+        prompt = 'please provide the exponent of the signal: ';
+        exponent = input(prompt);
+        
+        portion_signal = amp*exp(exponent*time);
+        
+    elseif strcmp(signal_name, 'polynomial')
+        prompt = 'please provide the Amplitude of the signal: ';
+        amp = input(prompt);
+        
+        prompt = 'please provide the power of the signal: ';
+        power = input(prompt);
+        
+        prompt = 'please provide the intercept of the signal: ';
+        intercept = input(prompt);
+        
+        portion_signal = amp*(time.^(power)) + intercept;
+    end
+end
+
