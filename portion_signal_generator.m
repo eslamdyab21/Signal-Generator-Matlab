@@ -54,4 +54,3 @@ function portion_signal = portion_signal_generator(signal_name,time)
         
     end
 end
-

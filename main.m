@@ -21,13 +21,12 @@ t = linspace(start,endd,(endd - start)*sample_rate );
 prompt = 'please provide number of the break points: ';
 num_break_points = input(prompt);
 
-if (num_break_points > 0)
+if (num_break_points > 0) 
     positions = zeros(1, num_break_points);
     fprintf('please provide the position of break points: \n');
 else
     positions =[0];
 end
-
 
 i=1;
 while( i <= num_break_points )
@@ -53,5 +52,4 @@ title('Original Signal')
 
 fprintf('------------------------------------------------------------------\n');
 % ask for modifications on the signal
-signal_modifed = operation_on_signal(t,signal);
-
+operation_on_signal(t,signal);

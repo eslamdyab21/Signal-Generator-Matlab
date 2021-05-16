@@ -21,13 +21,12 @@ t = linspace(start,endd,(endd - start)*sample_rate );
 prompt = 'please provide number of the break points: ';
 num_break_points = input(prompt);
 
-if (num_break_points > 0)
+if (num_break_points > 0) 
     positions = zeros(1, num_break_points);
     fprintf('please provide the position of break points: \n');
 else
     positions =[0];
 end
-
 
 i=1;
 while( i <= num_break_points )
@@ -42,19 +41,16 @@ while( i <= num_break_points )
     i = i +1;
 end
 
+fprintf('------------------------------------------------------------------\n');
 % get the signal
-signal = signals_generator(start,endd,sample_rate,positions,num_break_points);
-
-% ask for modifications on the signal
-signal_modifed = operation_on_signal(t,signal);
+%signal = signals_generator(start,endd,sample_rate,positions,num_break_points);
+signals_generator(start,endd,sample_rate,positions,num_break_points);
 
 % ploting the signal
 figure(1)
 plot(t,signal)
+title('Original Signal')
 
-figure
-hold on
-if (signal_modifed ~= signal)
-    figure(2)
-    plot(t,signal_modifed)
-end
+fprintf('------------------------------------------------------------------\n');
+% ask for modifications on the signal
+signal_modifed = operation_on_signal(t,signal);

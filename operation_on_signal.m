@@ -1,4 +1,4 @@
-function signal_modifed = operation_on_signal(t,signal)
+function operation_on_signal(t,signal)
 %UNTITLED4 Summary of this function goes here
 %   Detailed explanation goes here
     
